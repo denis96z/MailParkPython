@@ -43,12 +43,14 @@ def euler4():
     return m
 
 def main():
-    f = input('Function name: ')
+    while True:
+        f = input('Function name: ')
+        if f == '-1': return
 
-    try:
-        eval('print(' + f + '())')
-    except NameError:
-        print('Function not found')
+        try:
+            eval('print(' + f + '())')
+        except NameError:
+            print('Function not found')
 
 if __name__ == "__main__":
     main()
