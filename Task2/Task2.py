@@ -83,7 +83,7 @@ def loosing_score(results, team):
 def result_to_str(results, t1, t2):
     for r in results:
         if result_has_team(r, t1) and result_has_team(r, t2):
-            return str(r[2]) + ':' + str(r[3])
+            return t1 + '-' + t2 + '\t' + str(r[2]) + ':' + str(r[3])
 
 def create_table(results, scores):
     table = []
@@ -111,9 +111,11 @@ def main():
 
     print_table(create_table(results, scores))
 
-    t1 = input('First team: ')
-    t2 = input('Second team: ')
-    print(result_to_str(results, t1, t2))
+    while True:
+        t1 = input('\n\n' + 'First team: ')
+        if t1 == '': break
+        t2 = input('Second team: ')
+        print(result_to_str(results, t1, t2))
 
 if __name__ == "__main__":
     main()
